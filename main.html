@@ -11,7 +11,6 @@
             font-family: 'thunder';
             src: url('./assets/thunder.woff') format('woff2'),
                  url('./assets/thunder.woff2') format('woff');
-            /* You may need to adjust the paths to the "Inter" font files */
         }
 
         body {
@@ -20,7 +19,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 90vh;
+            height: 100vh;
             margin: 0;
             font-family: 'Bebas Neue', Arial, sans-serif; /* Use the custom "Thunder" font here */
             background: #000000;
@@ -28,37 +27,71 @@
             color: #ffffff; /* Text color */
         }
 
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
         .large-title {
             font-size: 85px; /* Larger font size */
             margin: 2rem;
             opacity: 0; /* Start with zero opacity for the fade-in animation */
-            animation: fadeIn 2s ease forwards; /* Apply fade-in animation */
+            animation: fadeIn 2s ease forwards, colorChange 5s infinite; /* Apply fade-in and color change animations */
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: rgb(255, 0, 0); /* Red */
+            }
+            33% {
+                color: rgb(0, 255, 0); /* Green */
+            }
+            66% {
+                color: rgb(0, 0, 255); /* Blue */
+            }
+            100% {
+                color: rgb(255, 0, 0); /* Back to Red */
+            }
+        }
+
         .shadow__btn {
-        padding: 10px 20px;
-        border: none;
-        margin: .2rem;
-        font-size: 17px;
-        color: #000000;
-        border-radius: 7px;
-        font-family: 'thunder', sans-serif;
-        font-weight: 700;
-        text-transform: uppercase;
-        transition: 0.5s;
-        transition-property: box-shadow;
-      }
-
-      .shadow__btn {
-        background: rgb(255, 255, 255);
-        box-shadow: 0 0 25px rgb(255, 255, 255);
-      }
-
-      .shadow__btn:hover {
-        box-shadow: 0 0 5px rgb(255, 192, 203),
-              0 0 25px rgb(255, 192, 203),
-              0 0 50px rgb(255, 192,203),
-              0 0 100px rgb(255, 192, 203);
+            padding: 10px 20px;
+            border: none;
+            margin: .2rem;
+            font-size: 17px;
+            color: #000000;
+            border-radius: 7px;
+            font-family: 'thunder', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.5s;
+            transition-property: box-shadow, background-color;
+            background: rgb(255, 255, 255);
+            animation: colorChange 5s infinite; /* Apply color change animation to buttons */
         }
+
+        .shadow__btn:hover {
+            box-shadow: 0 0 5px rgb(255, 192, 203),
+                        0 0 25px rgb(255, 192, 203),
+                        0 0 50px rgb(255, 192, 203),
+                        0 0 100px rgb(255, 192, 203);
+        }
+
         .dropdown {
             display: none;
             padding: 10px;
@@ -71,10 +104,12 @@
             left: -180px;
             z-index: 1;
         }
+
         .button-container {
-          opacity: 0;
-          animation: fadeIn 2s ease 1s forwards; /* Apply fade-in animation */
+            opacity: 0;
+            animation: fadeIn 2s ease 1s forwards; /* Apply fade-in animation */
         }
+
         .seemore-container {
             opacity: 0;
             font-family: 'Montserrat',sans-serif;
@@ -83,19 +118,13 @@
             top: 10rem;
             cursor: help;
             animation: fadeInV2 2s ease 4s forwards; /* Apply fade-in animation */
-          }
+        }
+
         .show-dropdown {
             display: block;
         }
-       @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-       @keyframes fadeInV2 {
+
+        @keyframes fadeInV2 {
             from {
                 opacity: 0;
             }
@@ -103,25 +132,30 @@
                 opacity: 0.3;
             }
         }
-        
     </style>
 </head>
 <body>
-    <h1 class="large-title">❮ 𝗥𝗖𝗗♟𝗠𝗗 ❯</h1>
+    <video autoplay muted loop>
+        <source src="https://telegra.ph/file/81f054d51d7b8c84937ae.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h1 class="large-title">𝗥𝗖𝗗 𝗠𝗗</h1>
     <h2 style="font-family: 'thunder',sans-serif; font-weight: 140; opacity: 0; animation: fadeIn 2s ease 0.5s forwards;">❮ 𝗥𝗖𝗗 𝗠𝗗 𝗟𝗜𝗡𝗞 𝗗𝗘𝗩𝗜𝗖𝗘 ❯</h2>
+    
     <div class="button-container">
         <button type="button" onclick="window.location ='/qr'" class="shadow__btn">𝗩𝗜𝗔 𝗤𝗥</button>
+        <button type="button" onclick="window.location ='https://whatsapp.com/channel/0029Vag1WQFJf05dF0pQeU3u'" class="shadow__btn">𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣</button>
         <button type="button" onclick="window.location ='https://rcd-md-pair-site.onrender.com/'" class="shadow__btn">𝗩𝗜𝗔 𝗣𝗔𝗜𝗥</button>
-      </form>
-        </div>
-        <div class="seemore-container">
-          <span id="seeMoreButton" class="info-icon"><u>IMPORTANT NOTE</u></span>
-          <script>
-              const seeMoreButton = document.getElementById('seeMoreButton');
-              seeMoreButton.addEventListener('click', function (event) {
-                alert('RCD MD POWER BY RCD TEAM')
-              });
-             </script>
-          </div>
+    </div>
+
+    <div class="seemore-container">
+        <span id="seeMoreButton" class="info-icon"><u>IMPORTANT NOTE</u></span>
+        <script>
+            const seeMoreButton = document.getElementById('seeMoreButton');
+            seeMoreButton.addEventListener('click', function () {
+                alert('RCD MD POWER BY RCD TEAM');
+            });
+        </script>
+    </div>
 </body>
 </html>
