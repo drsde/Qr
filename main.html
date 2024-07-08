@@ -1,202 +1,127 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RCD MD PAIR CODE</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;   p
-      margin: 0;
-      background-image: url("https://telegra.ph/file/fbee2804c989ef2f910b4.jpg"); 
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <title>𝗥𝗖𝗗 𝗠𝗗 𝗩𝗜𝗘𝗪</title>
+    <link rel="icon" href="https://graph.org/file/a9ad23c1153a05cafe814.jpg" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
+        @font-face {
+            font-family: 'thunder';
+            src: url('./assets/thunder.woff') format('woff2'),
+                 url('./assets/thunder.woff2') format('woff');
+            /* You may need to adjust the paths to the "Inter" font files */
+        }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        body {
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            margin: 0;
+            font-family: 'Bebas Neue', Arial, sans-serif; /* Use the custom "Thunder" font here */
+            background: #000000;
+            overflow: hidden;
+            color: #ffffff; /* Text color */
+        }
 
-    .box {
-      width: 300px;
-      height: 330px;
-      padding: 20px;
-      position: relative;
-      text-align: center;
-      background-color: rgba(255,255,255,0.5);
-      border-radius: 10px;
-      transform: perspective(1000px) rotateY(0deg);
-      box-shadow: none; /* Removed box shadow */
-      position: relative;
-    }
-
-    #text {
-      color: #000; /* Set the text color to black (#000) */
-    }
-
-    .input-container input {
-      color: #000; /* Set the text color to black (#000) */
-    }
-
-    .centered-text {
-      color: #000; /* Set the text color to black (#000) */
-    }
-
-    .input-container {
-      display: flex;
-      background: white;
-      border-radius: 1rem;
-      background: linear-gradient(45deg, #c5c5c5 0%, #ffffff 100%);
-      padding: 0.3rem;
-      gap: 0.3rem;
-      max-width: 300px; /* Set your desired maximum width */
-      width: 100%;
-    }
-
-    .input-container input {
-      border-radius: 0.8rem 0 0 0.8rem;
-      background: #e8e8e8;
-      width: 89%;
-      flex-basis: 75%;
-      padding: 1rem;
-      border: none;
-      border-left: 2px solid #ff9d9d;
-      color: #5e5e5e;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .input-container input:focus {
-      border-left: 2px solid #ff9d9d;
-      outline: none;
-    }
-
-    .input-container button {
-      flex-basis: 25%;
-      padding: 1rem;
-      background: linear-gradient(135deg, #8a2be2 0%, #800080 100%); /* Purple background */
-      font-weight: 900;
-      letter-spacing: 0.3rem;
-      text-transform: uppercase;
-      color: white;
-      border: none;
-      width: 100%;
-      border-radius: 0 1rem 1rem 0;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .input-container button:hover {
-      background: linear-gradient(135deg, #A8E4A0 0%, #32CD32 100%);
-      color: red; /* Change text color on hover to red */
-    }
-
-    @media (max-width: 500px) {
-      .input-container {
-        flex-direction: column;
+        .large-title {
+            font-size: 85px; /* Larger font size */
+            margin: 2rem;
+            opacity: 0; /* Start with zero opacity for the fade-in animation */
+            animation: fadeIn 2s ease forwards; /* Apply fade-in animation */
+        }
+        .shadow__btn {
+        padding: 10px 20px;
+        border: none;
+        margin: .2rem;
+        font-size: 17px;
+        color: #000000;
+        border-radius: 7px;
+        font-family: 'thunder', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: 0.5s;
+        transition-property: box-shadow;
       }
 
-      .input-container input {
-        border-radius: 0.8rem;
+      .shadow__btn {
+        background: rgb(255, 255, 255);
+        box-shadow: 0 0 25px rgb(255, 255, 255);
       }
 
-      .input-container button {
-        padding: 1rem;
-        border-radius: 0.8rem;
-      }
-    }
-
-    .centered-text {
-      text-align: center;
-    }
-  </style>
+      .shadow__btn:hover {
+        box-shadow: 0 0 5px rgb(255, 192, 203),
+              0 0 25px rgb(255, 192, 203),
+              0 0 50px rgb(255, 192,203),
+              0 0 100px rgb(255, 192, 203);
+        }
+        .dropdown {
+            display: none;
+            padding: 10px;
+            width: 400px;
+            border: 1px solid #ffffff;
+            background-color: #000000;
+            border-radius: 10px;
+            position: absolute;
+            top: 30px;
+            left: -180px;
+            z-index: 1;
+        }
+        .button-container {
+          opacity: 0;
+          animation: fadeIn 2s ease 1s forwards; /* Apply fade-in animation */
+        }
+        .seemore-container {
+            opacity: 0;
+            font-family: 'Montserrat',sans-serif;
+            font-size: small;
+            position:relative;
+            top: 10rem;
+            cursor: help;
+            animation: fadeInV2 2s ease 4s forwards; /* Apply fade-in animation */
+          }
+        .show-dropdown {
+            display: block;
+        }
+       @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+       @keyframes fadeInV2 {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.3;
+            }
+        }
+        
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="main">
-      <div class="box" id="box">
-        <div id="text">
-          <i class="fa fa-user"></i>
-          <p>
-            <h3 class="centered-text">┃Link With your phone number┃</h3>
-<a href="https://chat.whatsapp.com/Cry8eSzZqW27t9H8uOcRIR" target="_blank" rel="noopener noreferrer">
-  <img src="හූඩ්ට්ට්පාක්_ස්ථාපනය_නොදක්වා" alt="𝗥𝗖𝗗 𝗧𝗘𝗔𝗠" style="width: ප්රජාතන්ති විශාල සියල්ල දළුල්ල;">
-</a>
-
-            <h6>❯ Enter your number with country code ❮</h6>
-            <div class="input-container">
-              <input placeholder="+94789958225" type="number" id="number" placeholder="❯ enter your phone number with country code ❮" name="">
-              <button id="submit">enter</button>
-            </div>
-           
-            <a id="waiting-message" class="centered-text" style="display: none;">in process...</a>
-            <br>
-            <br>
-            <main id="pair"></main>
-          </p>
+    <h1 class="large-title">𝗥𝗖𝗗 𝗠𝗗</h1>
+    <h2 style="font-family: 'thunder',sans-serif; font-weight: 140; opacity: 0; animation: fadeIn 2s ease 0.5s forwards;">❮ 𝗥𝗖𝗗 𝗠𝗗 𝗟𝗜𝗡𝗞 𝗗𝗘𝗩𝗜𝗖𝗘 ❯</h2>
+    <div class="button-container">
+        <button type="button" onclick="window.location ='/qr.js'" class="shadow__btn">𝗩𝗜𝗔 𝗤𝗥</button>
+        <button type="button" onclick="window.location ='https://rcd-md-pair-site.onrender.com/'" class="shadow__btn">𝗩𝗜𝗔 𝗣𝗔𝗜𝗥</button>
+      </form>
         </div>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
-  <script>
-    let a = document.getElementById("pair");
-    let b = document.getElementById("submit");
-    let c = document.getElementById("number");
-    let box = document.getElementById("box");
-
-    async function Copy() {
-      let text = document.getElementById("copy").innerText;
-      let obj = document.getElementById("copy");
-      await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
-      obj.innerText = "COPIED";
-      obj.style = "color:blue;font-weight:bold";
-      obj.size = "5";
-      setTimeout(() => {
-        obj.innerText = text;
-        obj.style = "color:black;font-weight-bold";
-        obj.size = "5";
-      }, 500);
-    }
-
-    b.addEventListener("click", async (e) => {
-      e.preventDefault();
-      if (!c.value) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">❗Enter your whatsapp number with country code.</a><br><br>';
-      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">❌Invalid number format❌</a><br><br>';
-      } else {
-        const bc = c.value.replace(/[^0-9]/g, "");
-        let bb = "";
-        let bbc = "";
-        const cc = bc.split('');
-        cc.map(a => {
-          bbc += a;
-          if (bbc.length == 3) {
-            bb += " " + a;
-          } else if (bbc.length == 8) {
-            bb += " " + a;
-          } else {
-            bb += a;
-          }
-        });
-        c.type = "text";
-        c.value = "+" + bb;
-        c.style = "color:black;font-size:20px";
-        a.innerHTML = '<a style="color:black;font-weight:bold">Please wait 🙂 </a><br><br>';
-        let { data } = await axios(`/code?number=${bc}`);
-        let code = data.code || "Service Unavailable";
-        a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:black;font-weight:bold">' + code + '</span></font><br><br><br>';
-      }
-    });
-  </script>
+        <div class="seemore-container">
+          <span id="seeMoreButton" class="info-icon"><u>IMPORTANT NOTE</u></span>
+          <script>
+              const seeMoreButton = document.getElementById('seeMoreButton');
+              seeMoreButton.addEventListener('click', function (event) {
+                alert('RCD MD ALERT')
+              });
+             </script>
+          </div>
 </body>
 </html>
